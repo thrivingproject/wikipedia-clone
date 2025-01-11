@@ -1,5 +1,6 @@
 import util
 import markdown2
+import random
 
 from flask import Flask, render_template, request, redirect
 
@@ -25,13 +26,18 @@ def entry_edit_view(entry_title):
     )
 
 
-@app.route("/wiki/<entry_title>")
+@app.route("/wiki/<entry_title>/")
 def entry_detail_view(entry_title):
     return render_template(
         "entry_detail.html",
         entry_content=markdown2.markdown(util.get_entry(entry_title)),
         entry_title=entry_title,
     )
+
+
+@app.route("/random/")
+def random_entry_view():
+    return redirect(f"/wiki/{random.choice(util.list_entries())}")
 
 
 if __name__ == "__main__":
