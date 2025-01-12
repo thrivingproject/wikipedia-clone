@@ -10,8 +10,7 @@ app = Flask(__name__)
 @app.route("/create/", methods=["GET", "POST"])
 def entry_create_view():
     """
-    If the form is submitted, save the entry and redirect to the entry
-    detail view; otherwise, render the create form
+    View to create a new entry
     """
     if request.method == "POST":
         return handle_entry_form()
@@ -22,7 +21,7 @@ def entry_create_view():
 @app.route("/")
 def entry_list_view():
     """
-    Render the list of entries
+    View to list all entries
     """
     return render_template("entry_list.html", entries=util.list_entries())
 
@@ -30,8 +29,7 @@ def entry_list_view():
 @app.route("/wiki/<entry_title>/edit", methods=["GET", "POST"])
 def entry_edit_view(entry_title):
     """
-    If the form is submitted, call helper function to save the entry;
-    otherwise, render the edit form with the entry content
+    View to edit an existing entry
     """
     if request.method == "POST":
         return handle_entry_form(entry_title)
@@ -46,7 +44,7 @@ def entry_edit_view(entry_title):
 @app.route("/wiki/<entry_title>/")
 def entry_detail_view(entry_title):
     """
-    Render the entry detail view with the content of the entry
+    View to display an entry in markdown
     """
     return render_template(
         "entry_detail.html",
@@ -63,15 +61,14 @@ def handle_entry_form(entry_title=None):
         entry_title = request.form["entry_title"]
         if util.get_entry(entry_title):
             return render_template("error.html", message="Entry already exists")
-    entry_content = request.form["entry_content"]
-    util.save_entry(entry_title, entry_content)
+    util.save_entry(entry_title, request.form["entry_content"])
     return redirect(f"/wiki/{entry_title}")
 
 
 @app.route("/random/")
 def random_entry_view():
     """
-    Redirect to a random entry
+    View to redirect to a random entry
     """
     return redirect(f"/wiki/{random.choice(util.list_entries())}")
 
@@ -79,7 +76,7 @@ def random_entry_view():
 @app.route("/search/")
 def search_view():
     """
-    Render the search results; render entry detail view if exact match
+    View to search for entries
     """
     query = request.args.get("query")
     entries = util.list_entries()
