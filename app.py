@@ -76,5 +76,18 @@ def random_entry_view():
     return redirect(f"/wiki/{random.choice(util.list_entries())}")
 
 
+@app.route("/search/")
+def search_view():
+    """
+    Render the search results; render entry detail view if exact match
+    """
+    query = request.args.get("query")
+    entries = util.list_entries()
+    results = [entry for entry in entries if query.lower() in entry.lower()]
+    if len(results) == 1 and results[0].lower() == query.lower():
+        return redirect(f"/wiki/{results[0]}")
+    return render_template("search_results.html", results=results)
+
+
 if __name__ == "__main__":
     app.run(debug=True)
