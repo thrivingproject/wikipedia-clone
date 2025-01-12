@@ -46,9 +46,12 @@ def entry_detail_view(entry_title):
     """
     View to display an entry in markdown
     """
+    article = util.get_entry(entry_title)
+    if not article:
+        return render_template("article_dne.html")
     return render_template(
         "entry_detail.html",
-        entry_content=markdown2.markdown(util.get_entry(entry_title)),
+        entry_content=markdown2.markdown(article),
         entry_title=entry_title,
     )
 
@@ -83,7 +86,7 @@ def search_view():
     results = [entry for entry in entries if query.lower() in entry.lower()]
     if len(results) == 1 and results[0].lower() == query.lower():
         return redirect(f"/wiki/{results[0]}")
-    return render_template("search_results.html", results=results)
+    return render_template("search_results.html", results=results, query=query)
 
 
 if __name__ == "__main__":
