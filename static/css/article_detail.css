@@ -27,5 +27,41 @@
 }
 
 .article-actions-list a:not(.active):hover {
-  border-bottom: 2px solid #36c;
+  border-bottom: 2px solid var(--blue);
+}
+
+.article_editor {
+  width: 100%;
+  height: 487.393px;
+  padding: 1.3px;
+  border: 1px solid #c8ccd1;
+  resize: none;
+}
+
+.edit-actions-container {
+  background-color: #eaecf0;
+  padding: 1rem;
+  border: 1px solid #c8ccd1;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-top: none;
+}
+
+.article-edit-form {
+  display: grid;
+}
+
+.edit-save-button {
+  padding: 0.5rem 1rem;
+  background-color: var(--blue);
+  border: solid 1px var(--blue);
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 2px;
+}
+
+.edit-save-button:hover {
+  background-color: #3056a9;
+  border-color: #3056a9;
 }

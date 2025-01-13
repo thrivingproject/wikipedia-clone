@@ -1,7 +1,9 @@
 {% extends 'article_base.html' %}
 {% block article %}
-  <form method="post">
-    <textarea name="article_content" id="article_content">{{article_content}}</textarea>
-    <button type="submit">Save</button>
+  <form method="post" class="article-edit-form">
+    <textarea class="article_editor" name="article_content" id="article_content">{{article_content}}</textarea>
+    <div class="edit-actions-container">
+      <input type="submit" class="edit-save-button" value="Save changes" />
+    </div>
   </form>
 {% endblock article %}
