@@ -1,0 +1,26 @@
+.article-active-action {
+  border-bottom: 2px solid black;
+  border-radius: 2px;
+  color: black;
+}
+
+.article-actions-container {
+  box-shadow: 0 1px #c8ccd1;
+  margin-bottom: 1rem;
+}
+
+.article-actions-list {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  justify-content: flex-end;
+}
+
+.article-actions-list a {
+  display: inline-block;
+  padding: 12px 0 7px 0;
+}
+
+.article-actions-list a:hover {
+  text-decoration: none;
+}

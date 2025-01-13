@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+  <main>
+    <nav class="article-actions-container">
+      <ul class="article-actions-list">
+        <li>
+          <a class="article-active-action"
+             href="{{ url_for("article_detail_view", article_title=article_title) }}">Read</a>
+        </li>
+        <li>
+          <a href="{{ url_for("article_edit_view", article_title=article_title) }}">Edit</a>
+        </li>
+      </ul>
+    </nav>
+    {% block article %}
+    {% endblock article %}
+  </main>
+{% endblock content %}
