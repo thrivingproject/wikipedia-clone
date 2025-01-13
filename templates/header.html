@@ -1,4 +1,16 @@
 <header class="header">
+  <div class="main-menu-dropdown">
+    <span class="main-menu-icon"></span>
+    <div class="dropdown-content">
+      <div class="main-menu-header-container">
+        <h3 class="main-menu-header">Main menu</h3>
+      </div>
+      <nav class="main-menu-nav">
+        <a href="{{ url_for("entry_list_view") }}">Main page</a>
+        <a href="{{ url_for("random_entry_view") }}">Random</a>
+      </nav>
+    </div>
+  </div>
   <a class="flex" href="{{ url_for("entry_list_view") }}">
     <img src="{{ url_for('static', filename='images/wikipedia.png') }}"
          alt="wikipedia logo"

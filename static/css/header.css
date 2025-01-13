@@ -1,8 +1,47 @@
+.dropdown-content {
+  display: none;
+  padding: 2rem;
+  box-shadow: 0 2px 6px -1px rgba(0, 0, 0, 0.2);
+  background-color: white;
+}
+
 .header {
   padding: 1rem 2.75rem;
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+.main-menu-dropdown {
+  cursor: pointer;
+}
+
+.main-menu-header {
+  margin-bottom: 0.5rem;
+}
+
+.main-menu-header-container {
+  border-bottom: 1px solid #eaecf0;
+}
+
+.main-menu-icon {
+  height: 1.5rem;
+  width: 1.5rem;
+  background-color: #202122;
+  mask-image: url(https://en.wikipedia.org/w/load.php?modules=skins.vector.icons&image=menu&format=original&lang=en&skin=vector-2022&version=e7kbx);
+  mask-repeat: no-repeat;
+  display: inline-block;
+}
+
+.main-menu-nav {
+  margin-top: 0.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.main-menu-show {
+  display: block;
+  position: absolute;
 }
 
 .search-input {
