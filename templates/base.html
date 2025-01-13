@@ -7,29 +7,13 @@
     <meta name="keywords" content="Wikipedia, Clone" />
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/header.css') }}">
     <title>Wiki</title>
+    {% block head %}{% endblock %}
   </head>
   <body>
-    <header>
-      <h1>Wiki</h1>
-      <form action="{{ url_for("search_view") }}" method="get">
-        <input type="text" name="query" placeholder="Search..." required />
-        <button type="submit">Search</button>
-      </form>
-      <nav>
-        <ul>
-          <li>
-            <a href="{{ url_for("entry_list_view") }}">Home</a>
-          </li>
-          <li>
-            <a href="{{ url_for("entry_create_view") }}">Create Entry</a>
-          </li>
-          <li>
-            <a href="{{ url_for("random_entry_view") }}">Random Entry</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+    {% include 'header.html' %}
     {% block content %}{% endblock %}
   </body>
 </html>

@@ -1,0 +1,30 @@
+<header class="header">
+  <a class="flex" href="{{ url_for("entry_list_view") }}">
+    <img src="{{ url_for('static', filename='images/wikipedia.png') }}"
+         alt="wikipedia logo"
+         width="50"
+         height="50">
+    <span>
+      <img src="{{ url_for('static', filename='images/wikipedia-wordmark-en.svg') }}"
+           alt="wikipedia text"
+           width="150"
+           height="30"
+           class="block">
+      <img src="{{ url_for('static', filename='images/wikipedia-tagline-en.svg') }}"
+           alt="wikipedia tagline"
+           width="150"
+           height="15"
+           class="block">
+    </span>
+  </a>
+  <form action="{{ url_for("search_view") }}" method="get">
+    <div class="flex">
+      <input class="search-input"
+             type="text"
+             name="query"
+             placeholder="Search Wikipedia"
+             required />
+      <button class="search-button" type="submit">Search</button>
+    </div>
+  </form>
+</header>

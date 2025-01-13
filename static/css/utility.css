@@ -1,3 +1,11 @@
 .red-text {
   color: red;
 }
+
+.block {
+  display: block;
+}
+
+.flex {
+  display: flex;
+}

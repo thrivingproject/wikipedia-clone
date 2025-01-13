@@ -1,0 +1,27 @@
+/* Variables */
+:root {
+  --searchfield-hover-border-color: rgba(223, 225, 229, 0);
+
+  --blue: #36c;
+}
+
+/* Reset */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* Global */
+a {
+  text-decoration: none;
+  color: var(--blue);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+input[type="text"]:focus {
+  outline: none;
+}

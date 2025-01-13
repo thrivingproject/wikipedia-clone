@@ -1,3 +1,4 @@
-@layer utility;
+@layer global, utility;
 
+@import "global.css" layer(global);
 @import "utility.css" layer(utility);
