@@ -38,6 +38,7 @@ def article_edit_view(article_title):
         "article_edit.html",
         article_content=util.get_article(article_title),
         article_title=article_title,
+        active_action="edit",
     )
 
 
@@ -53,6 +54,7 @@ def article_detail_view(article_title):
         "article_detail.html",
         article_content=markdown2.markdown(article),
         article_title=article_title,
+        active_action="read",
     )
 
 

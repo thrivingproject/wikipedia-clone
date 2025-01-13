@@ -1,4 +1,4 @@
-.article-active-action {
+.active {
   border-bottom: 2px solid black;
   border-radius: 2px;
   color: black;
@@ -19,8 +19,13 @@
 .article-actions-list a {
   display: inline-block;
   padding: 12px 0 7px 0;
+  border-radius: 2px;
 }
 
 .article-actions-list a:hover {
   text-decoration: none;
+}
+
+.article-actions-list a:not(.active):hover {
+  border-bottom: 2px solid #36c;
 }
