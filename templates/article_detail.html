@@ -1,4 +1,7 @@
 {% extends "base.html" %}
+{% block head %}
+  <title>{{ article_title }}</title>
+{% endblock head %}
 {% block content %}
   <main>
     {% include 'read_edit_nav.html' %}

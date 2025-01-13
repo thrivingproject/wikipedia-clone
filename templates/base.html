@@ -9,8 +9,7 @@
           href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/header.css') }}">
-    <title>Wiki</title>
-    {% block head %}{% endblock %}
+    {% block head %}<title>Wikipedia, the free encyclopedia</title>{% endblock %}
   </head>
   <body>
     {% include 'header.html' %}
