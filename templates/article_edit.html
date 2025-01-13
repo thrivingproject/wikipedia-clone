@@ -1,9 +1,4 @@
 {% extends 'article_base.html' %}
-{% block head %}
-  <title>{{ article_title }}</title>
-  <link rel="stylesheet"
-        href="{{ url_for('static', filename='css/article_detail.css') }}">
-{% endblock head %}
 {% block article %}
   <form method="post">
     <textarea name="article_content" id="article_content">{{article_content}}</textarea>

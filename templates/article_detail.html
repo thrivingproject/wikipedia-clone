@@ -1,9 +1,4 @@
 {% extends "article_base.html" %}
-{% block head %}
-  <title>{{ article_title }}</title>
-  <link rel="stylesheet"
-        href="{{ url_for('static', filename='css/article_detail.css') }}">
-{% endblock head %}
 {% block article %}
   <article class="article-detail">{{ article_content|safe }}</article>
 {% endblock article %}
