@@ -4,7 +4,7 @@ import re
 base_path = os.path.join(os.path.dirname(__file__), "entries")
 
 
-def save_entry(filename: str, content):
+def save_article(filename: str, content):
     """
     Save content to a markdown file.
     """
@@ -15,7 +15,7 @@ def save_entry(filename: str, content):
         file.write(content)
 
 
-def get_entry(filename: str):
+def get_article(filename: str):
     """
     Read content from a markdown file.
     """

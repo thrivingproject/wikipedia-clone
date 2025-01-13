@@ -8,70 +8,70 @@ app = Flask(__name__)
 
 
 @app.route("/create/", methods=["GET", "POST"])
-def entry_create_view():
+def article_create_view():
     """
-    View to create a new entry
+    View to create a new article
     """
     if request.method == "POST":
-        return handle_entry_form()
+        return handle_article_form()
     # GET request
-    return render_template("entry_create.html")
+    return render_template("article_create.html")
 
 
 @app.route("/")
-def entry_list_view():
+def article_list_view():
     """
     View to list all entries
     """
-    return render_template("entry_list.html", entries=util.list_entries())
+    return render_template("article_list.html", entries=util.list_entries())
 
 
-@app.route("/wiki/<entry_title>/edit", methods=["GET", "POST"])
-def entry_edit_view(entry_title):
+@app.route("/wiki/<article_title>/edit", methods=["GET", "POST"])
+def article_edit_view(article_title):
     """
-    View to edit an existing entry
+    View to edit an existing article
     """
     if request.method == "POST":
-        return handle_entry_form(entry_title)
+        return handle_article_form(article_title)
     # GET request
     return render_template(
-        "entry_edit.html",
-        entry_content=util.get_entry(entry_title),
-        entry_title=entry_title,
+        "article_edit.html",
+        article_content=util.get_article(article_title),
+        article_title=article_title,
     )
 
 
-@app.route("/wiki/<entry_title>/")
-def entry_detail_view(entry_title):
+@app.route("/wiki/<article_title>/")
+def article_detail_view(article_title):
     """
-    View to display an entry in markdown
+    View to display an article in markdown
     """
-    article = util.get_entry(entry_title)
+    article = util.get_article(article_title)
     if not article:
         return render_template("article_dne.html")
     return render_template(
-        "entry_detail.html",
-        entry_content=markdown2.markdown(article),
-        entry_title=entry_title,
+        "article_detail.html",
+        article_content=markdown2.markdown(article),
+        article_title=article_title,
     )
 
 
-def handle_entry_form(entry_title=None):
+def handle_article_form(article_title=None):
     """
-    Helper function to handle creating or editing an entry
+    Helper function to handle creating or editing an article
     """
-    if not entry_title:
-        entry_title = request.form["entry_title"]
-        if util.get_entry(entry_title):
-            return render_template("error.html", message="Entry already exists")
-    util.save_entry(entry_title, request.form["entry_content"])
-    return redirect(f"/wiki/{entry_title}")
+    if not article_title:
+        article_title = request.form["article_title"]
+        if util.get_article(article_title):
+            return render_template("error.html", message="article already exists")
+    util.save_article(article_title, request.form["article_content"])
+    return redirect(f"/wiki/{article_title}")
 
 
 @app.route("/random/")
-def random_entry_view():
+def random_article_view():
     """
-    View to redirect to a random entry
+    View to redirect to a random article
     """
     return redirect(f"/wiki/{random.choice(util.list_entries())}")
 
@@ -83,7 +83,7 @@ def search_view():
     """
     query = request.args.get("query")
     entries = util.list_entries()
-    results = [entry for entry in entries if query.lower() in entry.lower()]
+    results = [article for article in entries if query.lower() in article.lower()]
     if len(results) == 1 and results[0].lower() == query.lower():
         return redirect(f"/wiki/{results[0]}")
     return render_template("search_results.html", results=results, query=query)

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+  <main>
+    <ul>
+      {% for article_title in entries %}
+        <li>
+          <a href="{{ url_for('article_detail_view', article_title=article_title) }}">{{ article_title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </main>
+{% endblock %}

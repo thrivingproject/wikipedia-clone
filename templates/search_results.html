@@ -4,14 +4,14 @@
   {% if results|length < 1 %}
     <i>The page
       <a class="red-text"
-         href="{{ url_for('entry_detail_view', entry_title=query) }}">{{ query }}</a>
-      does not exist. You can <a href="{{ url_for("entry_create_view") }}">create one now</a>.
+         href="{{ url_for('article_detail_view', article_title=query) }}">{{ query }}</a>
+      does not exist. You can <a href="{{ url_for("article_create_view") }}">create one now</a>.
     </i>
   {% endif %}
   <ul>
-    {% for entry in results %}
+    {% for article in results %}
       <li>
-        <a href="{{ url_for('entry_detail_view', entry_title=entry) }}">{{ entry }}</a>
+        <a href="{{ url_for('article_detail_view', article_title=article) }}">{{ article }}</a>
       </li>
     {% endfor %}
   </ul>
