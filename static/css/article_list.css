@@ -1,4 +1,17 @@
+.article-list-section {
+  padding: 1rem;
+  background-color: #f5faff;
+  border: solid 1px #cedff2;
+}
+
 .article-list-header {
-  text-align: center;
-  margin-bottom: 1rem;
+  background-color: #cedff2;
+  border: 1px solid #aaa;
+  line-height: 1.375;
+  margin: 0.5rem 0;
+  padding: 0.2em 0.4em;
+}
+
+.article-list {
+  margin-left: 1.6rem;
 }

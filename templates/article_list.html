@@ -4,16 +4,18 @@
         href="{{ url_for('static', filename='css/article_list.css') }}">
 {% endblock %}
 {% block content %}
-  <header class="article-list-header">
-    <h2>Articles</h2>
-  </header>
-  <section>
-    <ul>
-      {% for article_title in entries %}
-        <li>
-          <a href="{{ url_for('article_detail_view', article_title=article_title) }}">{{ article_title }}</a>
-        </li>
-      {% endfor %}
-    </ul>
+  <section class="article-list-section">
+    <header class="article-list-header">
+      <h2>Articles</h2>
+    </header>
+    <div class="article-list">
+      <ul>
+        {% for article_title in entries %}
+          <li>
+            <a href="{{ url_for('article_detail_view', article_title=article_title) }}">{{ article_title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
   </section>
 {% endblock %}

@@ -33,3 +33,8 @@ a:hover {
 input[type="text"]:focus {
   outline: none;
 }
+
+ul,
+ol {
+  list-style-position: inside;
+}
