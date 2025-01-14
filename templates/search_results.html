@@ -5,7 +5,7 @@
     <i>The page
       <a class="red-text"
          href="{{ url_for('article_detail_view', article_title=query) }}">{{ query }}</a>
-      does not exist. You can <a href="{{ url_for("article_create_view") }}">create one now</a>.
+      does not exist. You can <a href="{{ url_for("article_draft_view") }}">create one now</a>.
     </i>
   {% endif %}
   <ul>
