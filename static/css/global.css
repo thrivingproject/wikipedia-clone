@@ -1,7 +1,9 @@
 /* Variables */
 :root {
   --searchfield-hover-border-color: rgba(223, 225, 229, 0);
-  --blue: #36c;
+  --button-color: #36c;
+  --button-hover-color: #3056a9;
+  --button-text-color: white;
 }
 
 /* Reset */
@@ -22,7 +24,7 @@ main {
 
 a {
   text-decoration: none;
-  color: var(--blue);
+  color: var(--button-color);
 }
 
 a:hover {
@@ -44,4 +46,15 @@ ol {
 
 textarea:focus {
   outline: none;
+}
+
+.theme-button {
+  background-color: var(--button-color);
+  border: solid 1px var(--button-color);
+  color: var(--button-text-color);
+}
+
+.theme-button:hover {
+  background-color: var(--button-hover-color);
+  border-color: var(--button-hover-color);
 }

@@ -53,15 +53,7 @@
 
 .edit-save-button {
   padding: 0.5rem 1rem;
-  background-color: var(--blue);
-  border: solid 1px var(--blue);
-  color: white;
   font-size: 14px;
   font-weight: 700;
   border-radius: 2px;
-}
-
-.edit-save-button:hover {
-  background-color: #3056a9;
-  border-color: #3056a9;
 }
