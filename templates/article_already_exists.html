@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+  <style>
+    .article-already-exists h1 {
+      margin-bottom: 2rem;
+    }
+  </style>
+  <div class="article-already-exists">
+    <h1>Cannot create article!</h1>
+    <p>
+      You are attempting to create an article with the title <a href="{{ url_for('article_detail_view', article_title=article_title) }}">{{ article_title }}</a>, but that article already exists. You can <a href="{{ url_for('article_edit_view', article_title=article_title) }}">edit</a> it if you'd like.
+    </p>
+  </div>
+{% endblock %}

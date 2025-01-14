@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
+{% block head %}
+  <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/article_base.css') }}" />
+{% endblock %}
 {% block content %}
-  <main>
-    <form method="post">
-      <label for="article_title">Title</label>
-      <input type="text" id="article_title" name="article_title" required />
-      <label for="article_content">Content</label>
-      <textarea id="article_content" name="article_content" required></textarea>
-      <button type="submit">Create</button>
-    </form>
-  </main>
+  <form method="post" class="article-edit-form">
+    <textarea class="article_editor" name="article_content" id="article_content">{{article_content}}</textarea>
+    <div class="edit-actions-container">
+      <input type="submit"
+             class="edit-save-button theme-button"
+             value="Publish article" />
+    </div>
+  </form>
 {% endblock %}

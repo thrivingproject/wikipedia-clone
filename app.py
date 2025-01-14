@@ -7,13 +7,33 @@ from flask import Flask, render_template, request, redirect
 app = Flask(__name__)
 
 
-@app.route("/create/", methods=["GET", "POST"])
-def article_create_view():
+@app.route("/draft", methods=["GET", "POST"])
+def article_draft_view():
+    """
+    View to display draft article page and check if article exists
+    """
+    if request.method == "POST":
+        article_title = request.form["article_title"]
+        if util.get_article(article_title):
+            return render_template(
+                "article_already_exists.html", article_title=article_title
+            )
+        return redirect(f"/create/{article_title}")
+    # GET request
+    return render_template("article_draft.html")
+
+
+@app.route("/create/<article_title>", methods=["GET", "POST"])
+def article_create_view(article_title):
     """
     View to create a new article
     """
+    if util.get_article(article_title):
+        return render_template(
+            "article_already_exists.html", article_title=article_title
+        )
     if request.method == "POST":
-        return handle_article_form()
+        return save_article_and_redirect(article_title)
     # GET request
     return render_template("article_create.html")
 
@@ -32,7 +52,7 @@ def article_edit_view(article_title):
     View to edit an existing article
     """
     if request.method == "POST":
-        return handle_article_form(article_title)
+        return save_article_and_redirect(article_title)
     # GET request
     return render_template(
         "article_edit.html",
@@ -58,14 +78,10 @@ def article_detail_view(article_title):
     )
 
 
-def handle_article_form(article_title=None):
+def save_article_and_redirect(article_title):
     """
-    Helper function to handle creating or editing an article
+    Helper function to save an article and redirect to the article detail page
     """
-    if not article_title:
-        article_title = request.form["article_title"]
-        if util.get_article(article_title):
-            return render_template("error.html", message="article already exists")
     util.save_article(article_title, request.form["article_content"])
     return redirect(f"/wiki/{article_title}")
 

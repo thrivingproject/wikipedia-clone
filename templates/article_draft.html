@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block head %}
+  <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/article_draft.css') }}" />
+{% endblock %}
+{% block content %}
+  <section class="article-create">
+    <h1>Draft Creation</h1>
+    <form method="post">
+      <input type="text"
+             id="article-create-title-input"
+             name="article_title"
+             placeholder="Enter the name of your draft here"
+             aria-label="Article title"
+             required />
+      <input class="theme-button"
+             type="submit"
+             id="article-create-submit"
+             disabled
+             value="Create new article draft" />
+    </form>
+  </section>
+  <script src="{{ url_for('static', filename='js/articleCreate.js') }}"></script>
+{% endblock %}

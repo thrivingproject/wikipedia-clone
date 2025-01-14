@@ -1,0 +1,29 @@
+.article-create form {
+  margin-top: 3rem;
+  display: grid;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.article-create input[type="text"] {
+  width: 500px;
+  padding: 0.5rem 1rem;
+  font-size: 20px;
+}
+
+.article-create input[type="submit"] {
+  width: 245px;
+  margin: auto;
+  padding: 11px 1px;
+  font-weight: 700;
+  font-size: 20px;
+  border: solid 1px;
+  border-radius: 2px;
+  transition: background-color 0.1s;
+}
+
+.article-create input[type="submit"]:disabled {
+  background-color: #dadde3;
+  border-color: #c8ccd1;
+  cursor: default;
+}
