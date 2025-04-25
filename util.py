@@ -33,4 +33,10 @@ def list_entries():
     """
     List all markdown files in the directory.
     """
-    return sorted([re.sub(r"\.md$", "", f) for f in os.listdir(base_path) if f.endswith(".md")])
+    return sorted(
+        [
+            re.sub(r"\.md$", "", f)
+            for f in os.listdir(base_path)
+            if f.endswith(".md")
+        ]
+    )
